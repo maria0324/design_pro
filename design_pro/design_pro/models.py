@@ -9,7 +9,7 @@ import django
 
 class MainConfig(AppConfig):
    verbose_name = 'Дизайнерский сайт'
-   name = 'design_studio'
+   name = 'design_pro'
 
 class AdvUser(AbstractUser):
    name = models.CharField(max_length=250, verbose_name="ФИО", help_text="Только кириллические буквы, дефис и пробелы")

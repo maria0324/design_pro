@@ -1,5 +1,5 @@
 """
-WSGI config for design_pro project.
+WSGI config for designpro project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'design_pro.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'designpro.settings')
 
 application = get_wsgi_application()

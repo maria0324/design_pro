@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DesignproConfig(AppConfig):
+class DesignConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'designpro'
+    name = 'design_pro'
