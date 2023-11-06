@@ -19,3 +19,18 @@ class BBLoginView(LoginView):
 
 class BBLogoutView(LoginRequiredMixin, LogoutView):
    template_name = 'main/logout.html'
+
+
+class RegistrateUser(CreateView):
+   success_url = reverse_lazy('main:index')
+   def get(self, request, *args, **kwargs):
+      form = {'form': RegistrateUser()}
+      return render(request, 'main/registration.html', {'form': form})
+
+   def post(self, request, *args, **kwargs):
+      form = UserRegisterForm(request.POST, request.FILES)
+
+      if form.is_valid():
+         form.save()
+         return render(request, 'main/register_done.html', {'form': form})
+      return render(request, 'main/registration.html', {'form': form})
