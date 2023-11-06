@@ -15,3 +15,7 @@ def index(request):
 
 class BBLoginView(LoginView):
    template_name = 'main/login.html'
+
+
+class BBLogoutView(LoginRequiredMixin, LogoutView):
+   template_name = 'main/logout.html'
