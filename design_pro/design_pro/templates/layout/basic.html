@@ -1,14 +1,17 @@
 {% load static %}
-<head>
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
+
 
 <body>
 <ul class="dropdown-menu">
     <ul class="sidebar-nav">
         <a class="dropdown-item" href="#">Главная</a>
+            {% if user.is_authenticated %}
+            <a class="dropdown-item" href="{% url 'profile' %}">Профиль</a>
+            <a class="dropdown-item" href="{% url 'logout' %}">Выход</a>
+            {% else %}
             <a class="dropdown-item" href="{% url 'registration' %}">Регистрация</a>
             <a class="dropdown-item" href="{% url 'login' %}">Авторизация</a>
+            {% endif %}
 
     </ul>
 </ul>

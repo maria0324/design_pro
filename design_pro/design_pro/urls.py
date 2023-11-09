@@ -11,4 +11,4 @@ urlpatterns = [
     path('login/', BBLoginView.as_view(), name='login'),
     path('logout/', BBLogoutView.as_view(), name='logout'),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

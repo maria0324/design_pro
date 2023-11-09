@@ -1,8 +1,6 @@
 {% load bootstrap4 %}
 {% load static %}
-<header>
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</header>
+
 
 {% block content %}
 {% if user.is_authenticated %}
@@ -14,7 +12,7 @@
             <a class="dropdown-item" href="{% url 'logout' %}">Выход</a>
         </ul>
     </ul>
-<h2>Вы уже авторизованы.</h2>
+<h2>Вы  авторизованы.</h2>
 
 {% else %}
 <ul class="dropdown-menu">

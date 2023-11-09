@@ -1,9 +1,7 @@
 {% load bootstrap4 %}
 {% load static %}
 
-<header>
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</header>
+
 <body>
     <ul class="dropdown-menu">
         <ul class="sidebar-nav">
@@ -16,7 +14,7 @@
 {% block content %}
   <form method="POST" enctype="multipart/form-data">
 	{% csrf_token %}
-	  <h2>Регистрация</h2>
+	  <h2>Регистрация на сайте</h2>
 	  {{ form.as_p }}
 	{% buttons submit='Зарегистрироваться' %} {% endbuttons %}
 </form>
