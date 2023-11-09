@@ -41,9 +41,9 @@ class Request(models.Model):
         blank=True,
         verbose_name="Статус заявки")
     REQUEST_CATEGORY = (
-        ('BigBen', 'Здание'),
-        ('Plane', 'Самолёт'),
-        ('House', 'Дом'),
+        ('Kitchen', 'Кухня'),
+        ('Room', 'Комната'),
+        ('Badroom', 'Спальня'),
     )
     category = models.CharField(
         max_length=10,
@@ -53,6 +53,8 @@ class Request(models.Model):
     photo_of_room = models.ImageField(max_length=254, upload_to="media/", verbose_name="Фотография", help_text="Разрешается формата файла только jpg, jpeg, png, bmp",
                                       validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png', 'bmp']), validate_image])
     date = models.DateTimeField(default=django.utils.timezone.now)
+
+    author = models.ForeignKey(AdvUser, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.request_name

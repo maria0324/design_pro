@@ -6,9 +6,10 @@ from django.conf.urls.static import static
 from .views import *
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', ViewAllRequests.as_view(), name='index'),
     path('register/', RegistrateUser.as_view(), name='registration'),
     path('login/', BBLoginView.as_view(), name='login'),
     path('logout/', BBLogoutView.as_view(), name='logout'),
+    path('accounts/profile/', ViewRequests.as_view(), name='profile')
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

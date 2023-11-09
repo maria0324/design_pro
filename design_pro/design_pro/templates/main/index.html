@@ -1,11 +1,11 @@
-{% extends "layout/basic.html" %}
-{ % load static %}
+
+{% load static %}
 <body>
 {% if user.is_authenticated %}
     <ul class="dropdown-menu">
         <ul class="sidebar-nav">
             <a class="dropdown-item" href="{% url 'index' %}">Главная</a>
-            <a class="dropdown-item" href="#">Профиль</a>
+            <a class="dropdown-item" href="{% url 'profile' %}">Профиль</a>
             <a class="dropdown-item" href="{% url 'logout' %}">Выход</a>
         </ul>
     </ul>

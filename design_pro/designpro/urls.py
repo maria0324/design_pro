@@ -15,17 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.urls import include
-from django.conf import settings
-from django.views.decorators.cache import never_cache
-from django.views.static import serve
+from django.urls import path, include
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('design_pro.urls', namespace='')),
+    path('superadmin/', admin.site.urls),
+    path('', include('design_pro.urls')),
 
 ]
 
-if settings.DEBUG:
-    urlpatterns.append(path('css/<path:path>', never_cache(serve)))
+

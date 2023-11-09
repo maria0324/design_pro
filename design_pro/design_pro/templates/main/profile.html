@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% block content %}
+{% if user.is_authenticated %}
+    <ul class="dropdown-menu">
+        <ul class="sidebar-nav">
+            <a class="dropdown-item" href="{% url 'index' %}">Главная</a>
+            <a class="dropdown-item" href="{% url 'profile' %}">Профиль</a>
+            <a class="dropdown-item" href="{% url 'logout' %}">Выход</a>
+        </ul>
+    </ul>
+{% else %}
+<h3>Вы не авторизовались в систему!</h3>
+<ul class="dropdown-menu">
+        <ul class="sidebar-nav">
+            <a class="dropdown-item" href="{% url 'index' %}">Главная</a>
+            <a class="dropdown-item" href="{% url 'registration' %}">Регистрация</a>
+            <a class="dropdown-item" href="{% url 'login' %}">Авторизация</a>
+        </ul>
+    </ul>
+{% endif %}
 
-</body>
-</html>
+{% if requests %}
+<h2>Заявки:</h2>
+    {% for request in requests %}
+        <p>Создали: {{request.date}}</p>
+        <p>Название заявки: {{request.request_name}}</p>
+        <p>Описание: {{request.description}}</p>
+        <p>Категория: {{request.category}}</p>
+        <p>Статус: {{request.status}}</p>
+    {% endfor %}
+{% else %}
+<h3>Заявок  нет</h3>
+{% endif %}
+{% endblock content %}

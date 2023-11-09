@@ -33,3 +33,22 @@ class RegistrateUser(CreateView):
          form.save()
          return render(request, 'main/register_done.html', {'form': form})
       return render(request, 'main/registration.html', {'form': form})
+
+class ViewRequests(ListView):
+   model = Request
+   template_name = 'main/profile.html'
+   context_object_name = 'requests'
+
+   def get_queryset(self):
+      return Request.objects.filter(author=self.request.user)
+
+class ViewAllRequests(ListView):
+   model = Request
+   template_name = 'main/index.html'
+   context_object_name = 'requests'
+
+   def get_context_data(self,  **kwargs):
+      context = super().get_context_data(**kwargs)
+      context["num_of_accepted_requests"] = Request.objects.filter(status__exact='Принято в работу').count
+      return context
+
