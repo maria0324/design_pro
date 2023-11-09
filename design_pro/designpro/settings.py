@@ -127,4 +127,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'design_pro.AdvUser'
 
+Command.default_port = "8080"
 Command.default_addr = "localhost"
