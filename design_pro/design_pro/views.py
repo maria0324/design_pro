@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views.generic.list import ListView
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LogoutView
 from .forms import UserRegisterForm
@@ -52,3 +52,8 @@ class ViewAllRequests(ListView):
       context["num_of_accepted_requests"] = Request.objects.filter(status__exact='Принято в работу').count
       return context
 
+
+class DeleteRequest(DeleteView):
+   model = Request
+   template_name = 'main/delete_request.html'
+   context_object_name = 'requests'

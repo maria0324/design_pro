@@ -26,6 +26,7 @@
         <p>Описание: {{request.description}}</p>
         <p>Категория: {{request.category}}</p>
         <p>Статус: {{request.status}}</p>
+    <a href="delete/{{ request.id }}">Удалить</a>
     {% endfor %}
 {% else %}
 <h3>Заявок  нет</h3>
