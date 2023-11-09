@@ -57,3 +57,4 @@ class DeleteRequest(DeleteView):
    model = Request
    template_name = 'main/delete_request.html'
    context_object_name = 'requests'
+   success_url = reverse_lazy('index')
