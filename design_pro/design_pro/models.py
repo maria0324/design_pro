@@ -41,9 +41,9 @@ class Request(models.Model):
         blank=True,
         verbose_name="Статус заявки")
     REQUEST_CATEGORY = (
-        ('BigBen', 'Здание'),
-        ('Plane', 'Самолёт'),
-        ('House', 'Дом'),
+        ('2D', '2D'),
+        ('3D', '3D'),
+        ('SKETCH', 'Эскиз'),
     )
     category = models.CharField(
         max_length=10,
